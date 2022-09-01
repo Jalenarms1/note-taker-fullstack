@@ -124,7 +124,7 @@ const createLi = (text, delBtn = true) => {
   getNotes().then(res => res.json()).then(data => {
     data.map(item => {
       console.log(item)
-      if(text == item.title){
+      if(item.title == text){
         liEl.dataset.note = JSON.stringify(item)
       }
     })
@@ -187,6 +187,9 @@ const handleNoteSave = () => {
     getAndRenderNotes();
     renderActiveNote();
   });
+  getNotes().then(res => res.json()).then(data => {
+    console.log(data)
+  })
   
   noteTitle.value ="";
   noteText.value = "";
