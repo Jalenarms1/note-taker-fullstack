@@ -32,10 +32,10 @@ app.post("/api/notes", (req, res) => {
             id: getID()
         }
 
-        fs.readFile(path.join(__dirname, "./db/db.json"), "utf-8", (err, data) => {
+        fs.readFile("./db/db.json", "utf-8", (err, data) => {
             const parsedRes = JSON.parse(data);
             parsedRes.push(newNote)
-            fs.writeFile(path.join(__dirname, "./db/db.json"), JSON.stringify(parsedRes), err => {
+            fs.writeFile("./db/db.json", JSON.stringify(parsedRes), err => {
                 err ? console.error(err) : console.log("worked")
             })
         })
@@ -43,7 +43,7 @@ app.post("/api/notes", (req, res) => {
 })
 
 app.delete("/api/notes/:id", (req, res) => {
-    fs.readFile(path.join(__dirname, "./db/db.json"), "utf-8", (err, data) => {
+    fs.readFile("./db/db.json", "utf-8", (err, data) => {
         if(err) console.log(err);
         if(!err){
             let dbParsed = JSON.parse(data);
@@ -51,7 +51,7 @@ app.delete("/api/notes/:id", (req, res) => {
                 return item.id != req.params.id
             })
 
-            fs.writeFile(path.join(__dirname, "./db/db.json"), JSON.stringify(newData), err => {
+            fs.writeFile("./db/db.json", JSON.stringify(newData), err => {
                 err ? console.log(err) : console.log("Note delted")
             })
         }
