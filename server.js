@@ -13,16 +13,16 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
-app.get("/notes", (req, res) => {
+app.get("https://serene-savannah-94213.herokuapp.com/notes", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/notes.html"))
     console.log("End point hit")
 })
 
-app.get("/api/notes", (req, res) => {
+app.get("https://serene-savannah-94213.herokuapp.com/api/notes", (req, res) => {
     res.json(db)
 })
 
-app.post("/api/notes", (req, res) => {
+app.post("https://serene-savannah-94213.herokuapp.com/api/notes", (req, res) => {
     console.log(req.body)
     const { title, text, id } = req.body;
     if(title && text){
@@ -42,7 +42,7 @@ app.post("/api/notes", (req, res) => {
     }
 })
 
-app.delete("/api/notes/:id", (req, res) => {
+app.delete("https://serene-savannah-94213.herokuapp.com/api/notes/:id", (req, res) => {
     fs.readFile("./db/db.json", "utf-8", (err, data) => {
         if(err) console.log(err);
         if(!err){
