@@ -23,7 +23,7 @@ app.get("/api/notes", (req, res) => {
 })
 
 app.post("/api/notes", (req, res) => {
-    console.log(req.body)
+    console.log(`${req.body} logged from server`)
     const { title, text, id } = req.body;
     if(title && text){
         const newNote = {
