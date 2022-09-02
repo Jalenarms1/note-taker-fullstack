@@ -187,9 +187,7 @@ const handleNoteSave = () => {
     getAndRenderNotes();
     renderActiveNote();
   });
-  getNotes().then(res => res.json()).then(data => {
-    console.log(data)
-  })
+  
   
   noteTitle.value ="";
   noteText.value = "";

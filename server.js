@@ -5,10 +5,10 @@ const db = require("./db/db.json");
 const path = require("path");
 const getID = require("./helper/generateID.js")
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3001;
 
 
-app.use(express.static("public"));
+
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
@@ -57,6 +57,8 @@ app.delete("/api/notes/:id", (req, res) => {
         }
     })
 })
+
+app.use(express.static("public"));
 
 app.listen(PORT, () => {
     console.log("Success")
