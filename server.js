@@ -4,8 +4,13 @@ const app = express();
 const db = require("./db/db.json");
 const path = require("path");
 const getID = require("./helper/generateID.js")
+const cors = require("cors");
 
 const PORT = process.env.PORT || 3001;
+
+app.use(cors({
+    origin: "*",
+}))
 
 
 app.use(express.static("public"));
