@@ -5,7 +5,7 @@ const db = require("./db/db.json");
 const path = require("path");
 const getID = require("./helper/generateID.js")
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT
 
 
 app.use(express.static("public"));
