@@ -18,12 +18,12 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
-app.get("/notes", (req, res) => {
+app.get("https://serene-savannah-94213.herokuapp.com/api/notes/notes", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/notes.html"))
     console.log("End point hit")
 })
 
-app.use("/api", router)
+app.use("https://serene-savannah-94213.herokuapp.com/api/notes/api", router)
 
 app.listen(PORT, () => {
     console.log("Success")
