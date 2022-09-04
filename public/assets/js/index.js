@@ -43,6 +43,7 @@ const saveNote = (note) =>
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      "Acess-Control-Allow-Origin": "*"
     },
     body: JSON.stringify(note),
 
@@ -53,6 +54,7 @@ const deleteNote = (id) =>
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
+      "Acess-Control-Allow-Origin": "*"
     },
   });
 
