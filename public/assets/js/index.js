@@ -49,7 +49,7 @@ const saveNote = (note) =>
   });
 
 const deleteNote = (id) =>
-  fetch(`https://serene-savannah-94213.herokuapp.com/api/notes/${id}`, {
+  fetch(`/api/notes/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
