@@ -41,6 +41,7 @@ const getNotes = () =>
 const saveNote = (note) =>
   fetch('/api/notes', {
     method: 'POST',
+    mode: "cors",
     headers: {
       'Content-Type': 'application/json',
       "Acess-Control-Allow-Origin": "*"
