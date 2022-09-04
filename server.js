@@ -26,5 +26,5 @@ app.get("/notes", (req, res) => {
 app.use("/api", router)
 
 app.listen(PORT, () => {
-    console.log("Success")
+    console.log(`${PORT} is running`)
 })
