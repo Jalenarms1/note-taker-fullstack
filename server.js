@@ -7,12 +7,12 @@ const getID = require("./helper/generateID.js")
 const cors = require("cors");
 const router = require("./routes/notesRouter");
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT;
 
-// app.use(cors({
-//     origin: "*",
-//     methods: ["GET", "POST", "DELETE"]
-// }))
+app.use(cors({
+    origin: "*",
+    options: ["GET", "POST", "DELETE"]
+}))
 
 app.use(express.static("public"));
 

@@ -4,6 +4,9 @@ const fs = require("fs");
 const db = require("../db/db.json");
 const getID = require("../helper/generateID.js")
 
+router.use(express.json());
+router.use(express.urlencoded({extended: true}))
+
 
 router.get("/notes", (req, res) => {
     res.json(db)
