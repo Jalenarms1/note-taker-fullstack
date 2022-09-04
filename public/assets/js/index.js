@@ -186,8 +186,8 @@ const handleNoteSave = () => {
   let newLi = createLi(newNote.title)
   noteList[0].append(newLi)
   saveNote(newNote).then(() => {
-    // getAndRenderNotes();
-    // renderActiveNote();
+    getAndRenderNotes();
+    renderActiveNote();
   });
   
   
