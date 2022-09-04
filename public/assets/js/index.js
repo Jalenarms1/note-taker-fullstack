@@ -12,7 +12,7 @@ if (window.location.pathname === '/notes') {
   noteList = document.querySelectorAll('.list-container .list-group');
 }
 
-if(noteList[0] == ""){
+if(noteList[0] == null){
   createLi('No saved Notes', false)
 }
 
