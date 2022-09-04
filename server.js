@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 3001;
 
 app.use(cors({
     origin: "*",
+    methods: ["GET", "POST", "DELETE"]
 }))
 
 app.use(express.static("public"));
