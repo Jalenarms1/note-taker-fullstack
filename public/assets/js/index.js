@@ -12,6 +12,10 @@ if (window.location.pathname === '/notes') {
   noteList = document.querySelectorAll('.list-container .list-group');
 }
 
+if(!noteList.hasChildNodes()){
+  createLi('No saved Notes', false)
+}
+
 // Show an element
 const show = (elem) => {
   elem.style.display = 'inline';
