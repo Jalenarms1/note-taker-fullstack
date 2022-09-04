@@ -12,7 +12,7 @@ if (window.location.pathname === '/notes') {
   noteList = document.querySelectorAll('.list-container .list-group');
 }
 
-if(!noteList.hasChildNodes()){
+if(noteList.innerHTML == ""){
   createLi('No saved Notes', false)
 }
 
