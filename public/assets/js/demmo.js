@@ -80,8 +80,10 @@ const handleNoteSave = () => {
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
-    location.reload();
+    
   });
+
+  
   
 };
 
@@ -101,6 +103,8 @@ const handleNoteDelete = (e) => {
     getAndRenderNotes();
     renderActiveNote();
   });
+
+  hide(note.parentElement);
 };
 
 // Sets the activeNote and displays it
@@ -178,6 +182,7 @@ const renderNoteList = async (notes) => {
   if (window.location.pathname === '/notes') {
     noteListItems.forEach((note) => noteList[0].append(note));
   }
+  
 };
 
 // Gets notes from the db and renders them to the sidebar
