@@ -4,15 +4,9 @@ const app = express();
 const db = require("./db/db.json");
 const path = require("path");
 const getID = require("./helper/generateID.js")
-// const cors = require("cors");
 const router = require("./routes/notesRouter");
 
 const PORT = process.env.PORT || 3001;
-
-// app.use(cors({
-//     origin: "*",
-//     options: ["GET", "POST", "DELETE"]
-// }))
 
 app.use(express.static("public"));
 

@@ -14,8 +14,9 @@ router.get("/notes", (req, res) => {
 
 router.post("/notes", (req, res) => {
     console.log(`${req.body} logged from server`)
+    res.send(`${req.method} request was received`)
     const { title, text, id } = req.body;
-    if(req.body.title && req.body.text){
+    if(title && text){
         let store = {
             title: req.body.title,
             text: req.body.text,
