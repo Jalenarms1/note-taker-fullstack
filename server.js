@@ -4,20 +4,22 @@ const app = express();
 const db = require("./db/db.json");
 const path = require("path");
 const getID = require("./helper/generateID.js")
-const cors = require("cors");
+// const cors = require("cors");
 const router = require("./routes/notesRouter");
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3001;
 
-app.use(cors({
-    origin: "*",
-    options: ["GET", "POST", "DELETE"]
-}))
+// app.use(cors({
+//     origin: "*",
+//     options: ["GET", "POST", "DELETE"]
+// }))
 
 app.use(express.static("public"));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
+
+
 
 app.get("/notes", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/notes.html"))
@@ -25,6 +27,8 @@ app.get("/notes", (req, res) => {
 })
 
 app.use("/api", router)
+
+
 
 app.listen(PORT, () => {
     console.log(`${PORT} is running`)

@@ -15,16 +15,16 @@ router.get("/notes", (req, res) => {
 router.post("/notes", (req, res) => {
     console.log(`${req.body} logged from server`)
     const { title, text, id } = req.body;
-    if(title && text){
-        const newNote = {
-            title,
-            text,
+    if(req.body.title && req.body.text){
+        let store = {
+            title: req.body.title,
+            text: req.body.text,
             id: getID()
         }
 
         fs.readFile("./db/db.json", "utf-8", (err, data) => {
             const parsedRes = JSON.parse(data);
-            parsedRes.push(newNote)
+            parsedRes.push(store)
             fs.writeFile("./db/db.json", JSON.stringify(parsedRes), err => {
                 err ? console.error(err) : console.log("worked")
             })
