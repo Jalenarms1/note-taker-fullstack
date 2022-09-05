@@ -34,6 +34,7 @@ router.post("/notes", (req, res) => {
 })
 
 router.delete("/notes/:id", (req, res) => {
+    res.send(`${req.params.id} was deleted`)
     fs.readFile("./db/db.json", "utf-8", (err, data) => {
         if(err) console.log(err);
         if(!err){
