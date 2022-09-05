@@ -23,5 +23,5 @@ app.use("/api", router)
 
 
 app.listen(PORT, () => {
-    console.log(`${PORT} is running`)
+    console.log(`http://localhost:${PORT}`)
 })

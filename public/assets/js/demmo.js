@@ -78,8 +78,8 @@ const handleNoteSave = () => {
   let li = createLi(newNote.title)
   noteList[0].append(li)
   saveNote(newNote).then(() => {
-    getAndRenderNotes();
-    renderActiveNote();
+    // getAndRenderNotes();
+    // renderActiveNote();
     
   });
 
@@ -100,8 +100,8 @@ const handleNoteDelete = (e) => {
   }
 
   deleteNote(noteId).then(() => {
-    getAndRenderNotes();
-    renderActiveNote();
+    // getAndRenderNotes();
+    // renderActiveNote();
   });
 
   hide(note.parentElement);

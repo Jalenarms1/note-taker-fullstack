@@ -5,7 +5,7 @@ const db = require("../db/db.json");
 const getID = require("../helper/generateID.js")
 
 router.use(express.json());
-router.use(express.urlencoded({extended: true}))
+router.use(express.urlencoded({ extended: true }))
 
 
 router.get("/notes", (req, res) => {
@@ -13,7 +13,7 @@ router.get("/notes", (req, res) => {
 })
 
 router.post("/notes", (req, res) => {
-    console.log(`${req.body} logged from server`)
+    console.log(req.body)
     res.send(`${req.method} request was received`)
     const { title, text, id } = req.body;
     if(title && text){
