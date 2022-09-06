@@ -96,6 +96,7 @@ const handleNoteSave = () => {
   
   noteTitle.value = "";
   noteText.value = "";
+  hide(saveNoteBtn)
 };
 
 // Delete the clicked note
