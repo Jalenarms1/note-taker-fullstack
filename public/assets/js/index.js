@@ -56,7 +56,7 @@ const deleteNote = (id) =>
 const renderActiveNote = () => {
   hide(saveNoteBtn);
 
-  if (activeNote.id) {
+  if (activeNote.title) {
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
@@ -86,7 +86,7 @@ const handleNoteSave = () => {
     title: noteTitle.value,
     text: noteText.value,
   };
-  let li = createLi(newNote.title)
+  let li = createLi(newNote)
   noteList[0].append(li)
   saveNote(newNote).then(() => {
     
@@ -141,16 +141,17 @@ const handleRenderSaveBtn = () => {
   }
 };
 
-const createLi = (text, delBtn = true) => {
+const createLi = (note, delBtn = true) => {
   const liEl = document.createElement('li');
   liEl.classList.add('list-group-item');
 
   const spanEl = document.createElement('span');
   spanEl.classList.add('list-item-title');
-  spanEl.innerText = text;
+  spanEl.innerText = note.title;
   spanEl.addEventListener('click', handleNoteView);
 
   liEl.append(spanEl);
+  liEl.dataset.note = `{"title": "${note.title}", "text": "${note.text}"}`
 
   if (delBtn) {
     const delBtnEl = document.createElement('i');
@@ -184,11 +185,15 @@ const renderNoteList = async (notes) => {
   // Returns HTML element with or without a delete button
   
   if (jsonNotes.length === 0) {
-    noteListItems.push(createLi('No saved Notes', false));
+    let shape = {
+      title: "No saved Notes",
+      text: "none"
+    }
+    noteListItems.push(createLi(shape, false));
   }
 
   jsonNotes.forEach((note) => {
-    const li = createLi(note.title);
+    const li = createLi(note);
     li.dataset.note = JSON.stringify(note);
 
     noteListItems.push(li);
