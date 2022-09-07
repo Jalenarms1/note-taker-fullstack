@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const db = require("../db/db.json");
-const getID = require("../helper/generateID.js")
+// const getID = require("../helper/generateID.js")
 
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }))
@@ -20,7 +20,7 @@ router.post("/notes", (req, res) => {
         let store = {
             title: req.body.title,
             text: req.body.text,
-            id: getID()
+            id: req.body.id
         }
 
         fs.readFile("./db/db.json", "utf-8", (err, data) => {

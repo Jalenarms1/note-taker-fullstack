@@ -14,6 +14,11 @@ if (window.location.pathname === '/notes') {
   var placeLi = document.querySelector(".place")
 }
 
+const getID = () => {
+  return Math.floor((1 + Math.random()) * 0x10000)
+    .toString(16)
+    .substring(1);
+}
 
 
 // Show an element
@@ -77,6 +82,7 @@ const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
+    id: getID()
   };
   let li = createLi(newNote);
   noteList[0].append(li)
@@ -145,7 +151,7 @@ const createLi = (note, delBtn = true) => {
 
   liEl.append(spanEl);
   liEl.classList.add("list-el")
-  liEl.dataset.note = `{"title": "${note.title}", "text": "${note.text}"}`
+  liEl.dataset.note = `{"title": "${note.title}", "text": "${note.text}", "id": "${note.id}"}`
 
   if (delBtn) {
     const delBtnEl = document.createElement('i');
